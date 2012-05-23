@@ -14,7 +14,61 @@
 
 <property>
   <name>dfs.replication</name>
-  <value>1</value>
+  <value>3</value>
+</property>
+
+<property>
+  <name>raid.config.file</name>
+  <value>/app/hadoop/conf/raid-refactoring.xml</value>
+</property>
+
+<property>  
+    <name>dfs.permissions</name>  
+    <value>false</value>  
+    <description>Check for superuser privileges?</description>  
+</property>  
+
+<property>  
+    <name>raid.policy.rescan.interval</name>  
+    <value>30000</value>  
+    <description>interval in milliseconds between checks for lost files. Default is 1 minute</description>  
+</property> 
+
+<property>
+  <name>raid.codecs.json</name>
+  <value>
+    [   
+      {   
+        "id"            : "xor",
+        "parity_dir"    : "/raid",
+        "stripe_length" : 10, 
+        "parity_length" : 1,
+        "priority"      : 100,
+        "erasure_code"  : "org.apache.hadoop.raid.XorCode",
+        "description"   : "XOR code"
+      },  
+      {   
+        "id"            : "rs",
+        "parity_dir"    : "/raidrs",
+        "stripe_length" : 10,
+        "parity_length" : 4,
+        "priority"      : 300,
+        "erasure_code"  : "org.apache.hadoop.raid.ReedSolomonCode",
+        "description"   : "ReedSolomonCode code",
+      },  
+      {   
+        "id"            : "src",
+        "parity_dir"    : "/raidsrc",
+        "stripe_length" : 10, 
+        "parity_length" : 5, 
+        "degree"        : 2,
+        "erasure_code"  : "org.apache.hadoop.raid.SimpleRegeneratingCode",
+        "priority"      : 200,
+        "description"   : "SimpleRegeneratingCode code",
+      },  
+    ]   
+  </value>
+  <description>JSon string that contains all Raid codecs</description>
 </property>
 
 </configuration>

@@ -150,7 +150,7 @@ class ConfigManager {
    * expected to be in the following whitespace-separated format:
    * 
    <configuration>
-      <policy name = RaidScanWeekly>
+      <policy name = "RaidScanWeekly">
         <srcPath prefix="hdfs://hadoop.myhost.com:9000/user/warehouse/u_full/*"/>
         <parentPolicy> RaidScanMonthly</parentPolicy>
         <property>

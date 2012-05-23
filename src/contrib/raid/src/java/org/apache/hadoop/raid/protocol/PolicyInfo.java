@@ -216,7 +216,7 @@ public class PolicyInfo implements Writable {
   }
 
   private List<Path> removeConflictPath(List<Path> expandedPaths)
-      throws IOException {
+      throws IOException {    
     String destPrefix = Codec.getCodec(codecId).parityDirectory;
     destPrefix = normalizePath(destPrefix);
     List<Path> filtered = new ArrayList<Path>(expandedPaths.size());

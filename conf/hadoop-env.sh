@@ -6,10 +6,11 @@
 # remote nodes.
 
 # The java implementation to use.  Required.
-# export JAVA_HOME=/usr/lib/j2sdk1.5-sun
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
 
 # Extra Java CLASSPATH elements.  Optional.
-# export HADOOP_CLASSPATH=
+export HADOOP_CLASSPATH=${HADOOP_HOME}/build/contrib/raid/hadoop-0.20-fb-raid-mahesh-raid.jar
+
 
 # The maximum amount of heap to use, in MB. Default is 1000.
 # export HADOOP_HEAPSIZE=2000
@@ -28,7 +29,7 @@ export HADOOP_NAMENODE_OPTS="-Dcom.sun.management.jmxremote.port=8998 -Dcom.sun.
 
 # The only user who can start hadoop daemons. 
 # If this is not set, any user can start hadoop daemons.  
-export HADOOP_USERNAME="hadoop"
+export HADOOP_USERNAME="mahesh"
 
 # Java Runtime garbage collection options to pass to all Hadoop
 # servers (Namenode, Jobtracker, Datanode, Tasktracker). This must end
